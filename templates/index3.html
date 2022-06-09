@@ -1,0 +1,55 @@
+<html>  
+ <head>  
+  <title>Drag and Drop File Upload using DropzoneJS Python Flask PostgreSQL</title>  
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+ </head>  
+ <body> 
+    <form action="/", method="post" enctype="multipart/form-data">
+    <h2 class="screenshot">Upload Screenshot Image</h4>
+    <div class="dropzone" id="drop1" name="drop1">
+        <div class="dz-message needsclick">
+            <h1>Drop files here or click to upload.</h1>
+        </div>
+    </div>
+    <h2 class="reference">Upload Reference Image</h4>
+    <div class="dropzone" id="drop2" name="drop2">
+        <div class="dz-message needsclick">
+            <h1>Drop files here or click to upload.</h1>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <button value="Predict Image" type="submit" class="button-63">Compare</button>
+</form>
+<div class="pred">{{pred}}</div>
+<script>
+    if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+    }
+$(document).ready(function(){
+    Dropzone.autoDiscover=false;
+    $("#drop1").dropzone({
+      url: '/upload',
+      width: 1000,
+      height: 1000, 
+      progressBarWidth: '100%',
+      maxFileSize: '5MB'
+    })
+});
+$(document).ready(function(){
+    Dropzone.autoDiscover=false;
+    $("#drop2").dropzone({
+      url: '/upload2',
+      width: 1000,
+      height: 1000, 
+      progressBarWidth: '100%',
+      maxFileSize: '5MB'
+    })
+});
+</script> 
+
+ </body>  
+</html> 

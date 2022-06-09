@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Compare image RGB</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h2 class="upperText">COMPARE IMAGE</h2>
+
+			<form action="/", method="post" enctype="multipart/form-data">
+
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<h4 class="screenshot">Upload Screenshot Image</h4>
+					<input type="file" name="file1" id="file1" >
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<h4 class="reference">Upload Reference Image</h4>
+					<input type="file" name="file2" id="file2" >
+				
+			</div>
+			<div class="separator"></div>
+			<button value="Predict Image" type="submit" class="button-63">Compare</button>
+		</form>
+
+			<div id="result_comparation"></div>
+		</div>
+	</div>
+	<div class="pred">{{pred}}</div>
+</body>
+<script>
+	if ( window.history.replaceState ) {
+  	window.history.replaceState( null, null, window.location.href );
+	}
+</script>
+
+</html>
